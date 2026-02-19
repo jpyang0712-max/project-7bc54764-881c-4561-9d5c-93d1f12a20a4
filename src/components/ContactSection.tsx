@@ -41,15 +41,15 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="section-padding bg-brand-dark">
+    <section id="contact" className="section-padding bg-muted/40">
       <div className="container-custom mx-auto" ref={ref}>
         {/* Header */}
         <div className={`text-center mb-16 transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <span className="inline-block px-4 py-1 bg-brand-gold/20 text-brand-gold font-semibold text-sm rounded-full mb-4 tracking-wider uppercase">Contact</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6">
+          <span className="inline-block px-4 py-1 bg-brand-gold/10 text-brand-gold font-semibold text-sm rounded-full mb-4 tracking-wider uppercase">Contact</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-brand-dark mb-6">
             문의하기
           </h2>
-          <p className="text-white/60 max-w-xl mx-auto">
+          <p className="text-muted-foreground max-w-xl mx-auto">
             파트너십, 프로그램 참여, 일반 문의 등<br />어떤 내용이든 편하게 연락해주세요.
           </p>
           <div className="w-16 h-1 gradient-gold mx-auto rounded-full mt-6" />
@@ -61,11 +61,11 @@ const ContactSection = () => {
             {/* Contact info */}
             <div className="space-y-4 mb-8">
               {contactInfo.map((info, i) => (
-                <div key={i} className="flex items-start gap-4 bg-white/5 border border-white/10 rounded-xl p-4 hover:border-brand-gold/30 transition-colors duration-300">
+                <div key={i} className="flex items-start gap-4 bg-card border border-border rounded-xl p-4 hover:border-brand-gold/40 hover:shadow-card transition-all duration-300">
                   <span className="text-2xl mt-0.5">{info.icon}</span>
                   <div>
                     <div className="text-brand-gold font-semibold text-xs uppercase tracking-wider mb-1">{info.label}</div>
-                    <div className="text-white/80 text-sm whitespace-pre-line">{info.value}</div>
+                    <div className="text-foreground text-sm whitespace-pre-line">{info.value}</div>
                   </div>
                 </div>
               ))}
@@ -79,20 +79,20 @@ const ContactSection = () => {
                   <a
                     key={i}
                     href={sns.href}
-                    className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl p-3 hover:border-brand-gold/40 hover:bg-brand-gold/5 transition-all duration-300 group"
+                    className="flex items-center gap-3 bg-card border border-border rounded-xl p-3 hover:border-brand-gold/40 hover:shadow-card transition-all duration-300 group"
                   >
                     <span className="text-xl">{sns.icon}</span>
                     <div>
-                      <div className="text-white/80 font-semibold text-xs group-hover:text-brand-gold transition-colors">{sns.name}</div>
-                      <div className="text-white/40 text-xs">{sns.handle}</div>
+                      <div className="text-foreground font-semibold text-xs group-hover:text-brand-gold transition-colors">{sns.name}</div>
+                      <div className="text-muted-foreground text-xs">{sns.handle}</div>
                     </div>
                   </a>
                 ))}
               </div>
             </div>
 
-            {/* Map (Gangnam area placeholder) */}
-            <div className="rounded-2xl overflow-hidden border border-white/10">
+            {/* Map */}
+            <div className="rounded-2xl overflow-hidden border border-border shadow-card">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.4447766208!2d127.0266076!3d37.4979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca15a9cb16cbf%3A0xd7ee94c3e4f09cef!2z7YGs7Iqk7J207Yq4IOuztOyyneyLnCDthYzsiqTtirjroZw!5e0!3m2!1sko!2skr!4v1677000000000!5m2!1sko!2skr"
                 width="100%"
@@ -108,47 +108,47 @@ const ContactSection = () => {
 
           {/* Right - Contact Form */}
           <div className={`transition-all duration-700 delay-400 ${inView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`}>
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
-              <h3 className="text-white font-black text-xl mb-6">메시지 보내기</h3>
+            <div className="bg-card border border-border rounded-2xl p-8 shadow-card">
+              <h3 className="text-brand-dark font-black text-xl mb-6">메시지 보내기</h3>
 
               {submitted && (
-                <div className="mb-6 p-4 bg-brand-gold/20 border border-brand-gold/40 rounded-xl text-brand-gold text-sm font-semibold text-center">
+                <div className="mb-6 p-4 bg-brand-gold/10 border border-brand-gold/40 rounded-xl text-brand-gold text-sm font-semibold text-center">
                   ✅ 메시지가 전송되었습니다. 곧 연락드리겠습니다!
                 </div>
               )}
 
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
-                  <label className="block text-white/60 text-xs uppercase tracking-wider mb-2">이름 *</label>
+                  <label className="block text-muted-foreground text-xs uppercase tracking-wider mb-2">이름 *</label>
                   <input
                     type="text"
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                     required
                     placeholder="홍길동"
-                    className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-brand-gold transition-colors duration-300 text-sm"
+                    className="w-full bg-background border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-brand-gold transition-colors duration-300 text-sm"
                   />
                 </div>
                 <div>
-                  <label className="block text-white/60 text-xs uppercase tracking-wider mb-2">이메일 *</label>
+                  <label className="block text-muted-foreground text-xs uppercase tracking-wider mb-2">이메일 *</label>
                   <input
                     type="email"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
                     required
                     placeholder="example@email.com"
-                    className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-brand-gold transition-colors duration-300 text-sm"
+                    className="w-full bg-background border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-brand-gold transition-colors duration-300 text-sm"
                   />
                 </div>
                 <div>
-                  <label className="block text-white/60 text-xs uppercase tracking-wider mb-2">문의 내용 *</label>
+                  <label className="block text-muted-foreground text-xs uppercase tracking-wider mb-2">문의 내용 *</label>
                   <textarea
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     required
                     rows={5}
                     placeholder="파트너십, 프로그램 참여, 일반 문의 등 자유롭게 작성해주세요."
-                    className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-brand-gold transition-colors duration-300 text-sm resize-none"
+                    className="w-full bg-background border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-brand-gold transition-colors duration-300 text-sm resize-none"
                   />
                 </div>
                 <button
@@ -159,7 +159,7 @@ const ContactSection = () => {
                 </button>
               </form>
 
-              <p className="text-white/30 text-xs text-center mt-4">
+              <p className="text-muted-foreground text-xs text-center mt-4">
                 영업일 기준 1-2일 내에 답변드립니다.
               </p>
             </div>

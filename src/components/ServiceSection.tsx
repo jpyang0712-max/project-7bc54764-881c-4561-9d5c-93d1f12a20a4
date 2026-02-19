@@ -84,15 +84,15 @@ const ServiceSection = () => {
   const { ref, inView } = useInView();
 
   return (
-    <section id="service" className="section-padding bg-brand-dark">
+    <section id="service" className="section-padding bg-muted/40">
       <div className="container-custom mx-auto" ref={ref}>
         {/* Header */}
         <div className={`text-center mb-16 transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <span className="inline-block px-4 py-1 bg-brand-gold/20 text-brand-gold font-semibold text-sm rounded-full mb-4 tracking-wider uppercase">Service</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6">
+          <span className="inline-block px-4 py-1 bg-brand-gold/10 text-brand-gold font-semibold text-sm rounded-full mb-4 tracking-wider uppercase">Service</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-brand-dark mb-6">
             우리가 하는 일
           </h2>
-          <p className="text-white/60 max-w-2xl mx-auto text-base leading-relaxed">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-base leading-relaxed">
             단순한 인력 송출이 아닌, 교육에서 취업, 정착까지 연결된<br />
             <span className="text-brand-gold font-semibold">지속 가능한 글로벌 경로</span>를 설계합니다.
           </p>
@@ -104,13 +104,13 @@ const ServiceSection = () => {
           {serviceCards.map((card, i) => (
             <div
               key={i}
-              className={`group bg-brand-dark-2 border border-white/10 rounded-2xl p-6 hover:border-brand-gold/50 transition-all duration-400 hover:-translate-y-2 cursor-default transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-              style={{ transitionDelay: `${i * 100 + 200}ms` }}
+              className={`group bg-card border border-border rounded-2xl p-6 hover:border-brand-gold/50 hover:shadow-card-hover transition-all duration-400 hover:-translate-y-2 cursor-default ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              style={{ transitionDelay: `${i * 100 + 200}ms`, transition: "all 0.5s ease" }}
             >
               <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">{card.icon}</div>
               <div className="text-brand-gold font-black text-sm tracking-wider uppercase mb-1">{card.subtitle}</div>
-              <h3 className="text-white font-black text-xl mb-3">{card.title}</h3>
-              <p className="text-white/60 text-sm leading-relaxed mb-4">{card.desc}</p>
+              <h3 className="text-brand-dark font-black text-xl mb-3">{card.title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-4">{card.desc}</p>
               <div className="flex flex-wrap gap-2">
                 {card.tags.map((tag, j) => (
                   <span key={j} className="px-2 py-1 bg-brand-gold/10 text-brand-gold text-xs rounded-full border border-brand-gold/20">
@@ -124,29 +124,27 @@ const ServiceSection = () => {
 
         {/* Core Program - Pathway */}
         <div className={`transition-all duration-700 delay-300 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <h3 className="text-center text-2xl md:text-3xl font-black text-white mb-4">
+          <h3 className="text-center text-2xl md:text-3xl font-black text-brand-dark mb-4">
             핵심 프로그램 — <span className="text-brand-gold">Study Bees Pathway</span>
           </h3>
-          <p className="text-center text-white/50 mb-12 text-sm">요양보호사 취업 과정 전체 경로</p>
+          <p className="text-center text-muted-foreground mb-12 text-sm">요양보호사 취업 과정 전체 경로</p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {steps.map((step, i) => (
               <div key={i} className="relative">
-                {/* Connector line */}
                 {i < steps.length - 1 && (
                   <div className="hidden lg:block absolute top-10 left-full w-6 h-0.5 bg-gradient-to-r from-brand-gold to-amber-500 z-10" style={{ transform: "translateX(-12px)" }} />
                 )}
-
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-brand-gold/40 hover:bg-white/10 transition-all duration-300">
+                <div className="bg-card border border-border rounded-2xl p-6 hover:border-brand-gold/40 hover:shadow-card transition-all duration-300">
                   <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${step.color} flex items-center justify-center text-xl mb-4`}>
                     {step.icon}
                   </div>
-                  <div className="text-brand-gold/60 font-black text-xs tracking-widest mb-1">STEP {step.step}</div>
-                  <div className="text-white/40 text-xs mb-2">{step.location}</div>
-                  <h4 className="text-white font-black text-sm mb-4">{step.title}</h4>
+                  <div className="text-brand-gold font-black text-xs tracking-widest mb-1">STEP {step.step}</div>
+                  <div className="text-muted-foreground text-xs mb-2">{step.location}</div>
+                  <h4 className="text-brand-dark font-black text-sm mb-4">{step.title}</h4>
                   <ul className="space-y-2">
                     {step.items.map((item, j) => (
-                      <li key={j} className="flex items-start gap-2 text-white/60 text-xs">
+                      <li key={j} className="flex items-start gap-2 text-muted-foreground text-xs">
                         <span className="text-brand-gold mt-0.5">▸</span>
                         {item}
                       </li>

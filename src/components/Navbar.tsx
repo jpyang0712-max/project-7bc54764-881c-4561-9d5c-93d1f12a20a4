@@ -69,12 +69,7 @@ const Navbar = () => {
                 <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-brand-gold transition-all duration-300 group-hover:w-3/4" />
               </button>
             ))}
-            <button
-              onClick={() => scrollTo("contact")}
-              className="btn-style-one ml-4"
-            >
-              문의하기
-            </button>
+
           </nav>
 
           {/* Mobile Hamburger */}

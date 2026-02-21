@@ -64,6 +64,7 @@ export default {
           dark: "hsl(var(--brand-dark))",
           "dark-2": "hsl(var(--brand-dark-2))",
           navy: "hsl(var(--brand-navy))",
+          "navy-dark": "hsl(var(--brand-navy-dark))",
         },
       },
       borderRadius: {
@@ -72,7 +73,9 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["'Noto Sans KR'", "'Pretendard'", "sans-serif"],
+        sans: ["'Roboto'", "'Source Sans Pro'", "sans-serif"],
+        heading: ["'Roboto'", "sans-serif"],
+        body: ["'Source Sans Pro'", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {

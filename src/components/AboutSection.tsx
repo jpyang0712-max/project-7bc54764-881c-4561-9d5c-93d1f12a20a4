@@ -25,38 +25,39 @@ const AboutSection = () => {
   const { ref, inView } = useInView();
 
   const brands = [
-    { name: "Study Bees", desc: "유학·교육·자격 취득 경로 설계", icon: "📚", color: "from-yellow-400 to-amber-500" },
-    { name: "Work Bees", desc: "취업·현장·커리어 연계", icon: "💼", color: "from-amber-400 to-orange-500" },
-    { name: "Care Bees", desc: "요양·돌봄·주거 연계", icon: "🏥", color: "from-orange-400 to-red-400" },
-    { name: "Queen Bees", desc: "뷰티·라이프스타일·브랜드 사업", icon: "👑", color: "from-red-400 to-pink-500" },
-    { name: "Trade Bees", desc: "무역·해외 확장 사업", icon: "🌏", color: "from-yellow-500 to-amber-600" },
+    { name: "Study Bees", desc: "유학·교육·자격 취득 경로 설계", icon: "📚" },
+    { name: "Work Bees", desc: "취업·현장·커리어 연계", icon: "💼" },
+    { name: "Care Bees", desc: "요양·돌봄·주거 연계", icon: "🏥" },
+    { name: "Queen Bees", desc: "뷰티·라이프스타일·브랜드 사업", icon: "👑" },
+    { name: "Trade Bees", desc: "무역·해외 확장 사업", icon: "🌏" },
   ];
 
   return (
-    <section id="about" className="section-padding bg-white">
+    <section id="about" className="section-padding bg-background">
       <div className="container-custom mx-auto" ref={ref}>
-        {/* Section Header */}
+        {/* Section Header - Medic template style */}
         <div className={`text-center mb-16 transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <span className="inline-block px-4 py-1 bg-brand-gold/10 text-brand-gold font-semibold text-sm rounded-full mb-4 tracking-wider uppercase">About Us</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-brand-dark mb-6">
+          <h2 className="text-[40px] leading-[50px] font-heading font-bold text-foreground section-title-decorator">
             우리는 누구인가요?
           </h2>
-          <div className="w-16 h-1 gradient-gold mx-auto rounded-full" />
+          <p className="text-muted-foreground font-body text-[15px] leading-relaxed max-w-lg mx-auto">
+            교육, 취업, 돌봄, 무역을 하나의 구조로 연결하는 Hive형 글로벌 비즈니스 그룹입니다.
+          </p>
         </div>
 
         {/* Main content */}
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
           <div className={`transition-all duration-700 delay-200 ${inView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}>
-            <h3 className="text-2xl md:text-3xl font-black text-brand-dark mb-6 leading-tight">
+            <h3 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-6 leading-tight">
               <span className="text-brand-gold">Hive(벌집)형</span><br />
               글로벌 비즈니스 그룹
             </h3>
-            <p className="text-muted-foreground text-base leading-relaxed mb-6">
+            <p className="text-muted-foreground font-body text-base leading-relaxed mb-6">
               The Bees Group은 교육, 취업, 돌봄, 무역을 하나의 구조로 연결하는 Hive형 글로벌 비즈니스 그룹입니다.
               우리는 단기 인력 송출이나 브로커 사업을 하지 않습니다.
             </p>
-            <p className="text-muted-foreground text-base leading-relaxed mb-8">
-              <strong className="text-brand-dark">사람이 성장 → 일 → 정착</strong>할 수밖에 없는 경로(Pathway)를 설계하는 회사입니다.
+            <p className="text-muted-foreground font-body text-base leading-relaxed mb-8">
+              <strong className="text-foreground">사람이 성장 → 일 → 정착</strong>할 수밖에 없는 경로(Pathway)를 설계하는 회사입니다.
               교육 기반의 합법 모델만 운영하며, 단기 이익보다 장기 파트너십을 중시합니다.
             </p>
 
@@ -70,7 +71,7 @@ const AboutSection = () => {
               ].map((v, i) => (
                 <div key={i} className="flex items-center gap-3">
                   <span className="text-lg">{v.icon}</span>
-                  <span className="text-brand-dark font-medium">{v.text}</span>
+                  <span className="text-foreground font-medium font-body">{v.text}</span>
                 </div>
               ))}
             </div>
@@ -78,54 +79,49 @@ const AboutSection = () => {
 
           {/* Vision & Mission cards */}
           <div className={`space-y-6 transition-all duration-700 delay-400 ${inView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`}>
-            <div className="bg-brand-dark rounded-2xl p-8 text-white relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 opacity-10">
-                <svg viewBox="0 0 100 100" className="w-full h-full">
-                  <polygon points="50,5 93,27.5 93,72.5 50,95 7,72.5 7,27.5" fill="none" stroke="hsl(45,100%,51%)" strokeWidth="3" />
-                </svg>
-              </div>
-              <div className="text-brand-gold font-black text-sm tracking-widest uppercase mb-3">Vision</div>
-              <p className="text-white font-semibold text-lg leading-relaxed">
+            <div className="bg-brand-navy rounded-lg p-8 text-background relative overflow-hidden shadow-card">
+              <div className="text-brand-gold font-heading font-bold text-sm tracking-widest uppercase mb-3">Vision</div>
+              <p className="text-background font-body font-semibold text-lg leading-relaxed">
                 "사람이 합법적으로 성장하고 정착할 수 있는<br />
                 <span className="text-brand-gold">글로벌 경로를 만든다.</span>"
               </p>
             </div>
-            <div className="bg-brand-gold/10 border border-brand-gold/30 rounded-2xl p-8 relative overflow-hidden">
-              <div className="text-brand-gold font-black text-sm tracking-widest uppercase mb-3">Mission</div>
-              <p className="text-brand-dark font-semibold text-lg leading-relaxed">
+            <div className="bg-muted rounded-lg p-8 relative overflow-hidden border border-border shadow-card">
+              <div className="text-brand-gold font-heading font-bold text-sm tracking-widest uppercase mb-3">Mission</div>
+              <p className="text-foreground font-body font-semibold text-lg leading-relaxed">
                 교육·취업·돌봄·무역을 하나의 구조로 연결하여<br />
                 <span className="text-brand-gold">지속 가능한 글로벌 생태계</span>를 구축합니다.
               </p>
             </div>
 
             {/* Logo story */}
-            <div className="bg-muted/50 rounded-2xl p-6">
-              <div className="text-brand-gold font-black text-sm tracking-widest uppercase mb-3">Logo Story</div>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                <strong className="text-brand-dark">Bee(벌)</strong>는 각자의 역할이 분명한 전문성을 의미합니다.<br />
-                <strong className="text-brand-dark">Hive(벌집)</strong>는 개인들이 연결되어 가치를 키우는 시스템과 생태계를 의미합니다.
+            <div className="bg-muted rounded-lg p-6 border border-border shadow-card">
+              <div className="text-brand-gold font-heading font-bold text-sm tracking-widest uppercase mb-3">Logo Story</div>
+              <p className="text-muted-foreground font-body text-sm leading-relaxed">
+                <strong className="text-foreground">Bee(벌)</strong>는 각자의 역할이 분명한 전문성을 의미합니다.<br />
+                <strong className="text-foreground">Hive(벌집)</strong>는 개인들이 연결되어 가치를 키우는 시스템과 생태계를 의미합니다.
               </p>
             </div>
           </div>
         </div>
 
-        {/* Brands */}
+        {/* Brands - Medic about-section item-holder style */}
         <div className={`transition-all duration-700 delay-500 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <h3 className="text-center text-xl font-black text-brand-dark mb-8">
+          <h3 className="text-center text-xl font-heading font-bold text-foreground mb-8 uppercase">
             Hive 브랜드 구조
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {brands.map((brand, i) => (
               <div
                 key={i}
-                className="group relative bg-white rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2 text-center border border-border cursor-default"
+                className="group relative bg-muted rounded-lg p-8 shadow-card text-center cursor-default transition-all duration-500 hover:bg-brand-gold"
               >
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${brand.color} flex items-center justify-center text-2xl mx-auto mb-3 group-hover:scale-110 transition-transform duration-300`}>
-                  {brand.icon}
-                </div>
-                <div className="font-black text-brand-dark text-sm mb-2">{brand.name}</div>
-                <div className="text-muted-foreground text-xs leading-relaxed">{brand.desc}</div>
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-gold to-amber-500 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">{brand.icon}</div>
+                <h6 className="font-heading font-semibold text-foreground text-sm uppercase tracking-wide mb-2 pb-3 relative group-hover:text-background transition-colors duration-500">
+                  {brand.name}
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-px bg-muted-foreground group-hover:bg-background transition-colors duration-500" />
+                </h6>
+                <p className="text-muted-foreground text-xs leading-relaxed font-body group-hover:text-background/80 transition-colors duration-500">{brand.desc}</p>
               </div>
             ))}
           </div>

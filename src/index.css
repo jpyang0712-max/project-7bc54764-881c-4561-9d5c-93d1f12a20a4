@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Source+Sans+Pro:wght@400;600;700&display=swap');
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
@@ -10,33 +10,33 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 220 20% 97%;
-    --foreground: 220 25% 10%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 13%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 25% 10%;
+    --card-foreground: 0 0% 13%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 25% 10%;
+    --popover-foreground: 0 0% 13%;
 
     /* Golden primary - #FFC107 */
     --primary: 45 100% 51%;
-    --primary-foreground: 220 25% 10%;
+    --primary-foreground: 0 0% 13%;
 
     --secondary: 220 20% 15%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 220 15% 92%;
-    --muted-foreground: 220 15% 45%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 47%;
 
     --accent: 45 100% 51%;
-    --accent-foreground: 220 25% 10%;
+    --accent-foreground: 0 0% 13%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 15% 88%;
-    --input: 220 15% 88%;
+    --border: 0 0% 93%;
+    --input: 0 0% 93%;
     --ring: 45 100% 51%;
 
     --radius: 0.5rem;
@@ -45,21 +45,22 @@ All colors MUST be HSL.
     --brand-gold: 45 100% 51%;
     --brand-gold-dark: 40 95% 40%;
     --brand-gold-light: 48 100% 65%;
-    --brand-dark: 220 30% 12%;
-    --brand-dark-2: 220 25% 18%;
-    --brand-dark-3: 220 20% 22%;
-    --brand-navy: 220 35% 15%;
+    --brand-dark: 0 0% 13%;
+    --brand-dark-2: 210 11% 15%;
+    --brand-dark-3: 210 9% 22%;
+    --brand-navy: 216 55% 17%;
+    --brand-navy-dark: 218 60% 12%;
 
     /* Gradients */
     --gradient-gold: linear-gradient(135deg, hsl(45, 100%, 51%) 0%, hsl(38, 95%, 45%) 100%);
-    --gradient-dark: linear-gradient(135deg, hsl(220, 30%, 12%) 0%, hsl(220, 25%, 20%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(220, 35%, 8%) 0%, hsl(220, 30%, 15%) 60%, hsl(220, 25%, 18%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0, 0%, 100%) 0%, hsl(220, 20%, 97%) 100%);
+    --gradient-dark: linear-gradient(135deg, hsl(216, 55%, 17%) 0%, hsl(218, 60%, 12%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(216, 55%, 8%) 0%, hsl(216, 55%, 17%) 60%, hsl(218, 50%, 20%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0, 0%, 100%) 0%, hsl(0, 0%, 98%) 100%);
 
-    /* Shadows */
+    /* Shadows - Medic template style */
     --shadow-gold: 0 8px 32px -8px hsl(45, 100%, 51%, 0.4);
-    --shadow-card: 0 4px 24px -4px hsl(220, 30%, 12%, 0.12);
-    --shadow-card-hover: 0 16px 48px -8px hsl(220, 30%, 12%, 0.2);
+    --shadow-card: 0 0 20px hsl(0, 0%, 94%);
+    --shadow-card-hover: 0 0 30px hsl(0, 0%, 88%);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -83,13 +84,22 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Noto Sans KR', 'Pretendard', sans-serif;
+    font-family: 'Roboto', 'Source Sans Pro', sans-serif;
+    font-size: 15px;
+    line-height: 1.8em;
     -webkit-font-smoothing: antialiased;
   }
 
+  p {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: hsl(0, 0%, 47%);
+    font-size: 16px;
+    line-height: 1.8em;
+  }
+
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Noto Sans KR', 'Pretendard', sans-serif;
-    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
   }
 }
 
@@ -131,24 +141,83 @@ All colors MUST be HSL.
   }
 
   .section-padding {
-    @apply py-20 px-4 md:px-8 lg:px-16;
+    @apply py-24 px-4 md:px-8 lg:px-16;
   }
 
   .container-custom {
-    @apply max-w-6xl mx-auto;
+    @apply max-w-[1200px] mx-auto px-4;
   }
 
-  .animate-fade-up {
-    animation: fadeUp 0.7s ease forwards;
+  /* Section title decorator - Medic template style */
+  .section-title-decorator {
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 22px;
   }
 
-  .animate-fade-in {
-    animation: fadeIn 0.8s ease forwards;
+  .section-title-decorator::before {
+    position: absolute;
+    content: "";
+    background: hsl(0, 0%, 93%);
+    bottom: 0;
+    left: 50%;
+    margin-left: -120px;
+    height: 1px;
+    width: 240px;
+  }
+
+  .section-title-decorator::after {
+    position: absolute;
+    content: "";
+    background: hsl(var(--brand-gold));
+    bottom: 0;
+    left: 50%;
+    margin-left: -25px;
+    height: 1px;
+    width: 50px;
   }
 
   /* Hexagon shape */
   .hexagon {
     clip-path: polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%);
+  }
+
+  /* Medic template button styles */
+  .btn-style-one {
+    @apply inline-block text-sm font-semibold uppercase tracking-wide;
+    padding: 10px 36px;
+    background: hsl(var(--brand-gold));
+    color: hsl(var(--brand-dark));
+    border: 1px solid hsl(var(--brand-gold));
+    transition: all 0.5s ease;
+  }
+
+  .btn-style-one:hover {
+    background: transparent;
+    color: hsl(var(--brand-gold));
+  }
+
+  .btn-style-two {
+    @apply inline-block text-sm font-semibold uppercase tracking-wide;
+    padding: 10px 36px;
+    background: transparent;
+    color: hsl(var(--brand-dark));
+    border: 1px solid hsl(var(--brand-gold));
+    transition: all 0.5s ease;
+  }
+
+  .btn-style-two:hover {
+    background: hsl(var(--brand-gold));
+    color: hsl(var(--brand-dark));
+  }
+
+  .gold-shimmer {
+    background: linear-gradient(90deg, hsl(45,100%,51%) 0%, hsl(48,100%,70%) 50%, hsl(45,100%,51%) 100%);
+    background-size: 200% auto;
+    animation: shimmer 3s linear infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }
 
@@ -182,11 +251,10 @@ All colors MUST be HSL.
   animation: float 4s ease-in-out infinite;
 }
 
-.gold-shimmer {
-  background: linear-gradient(90deg, hsl(45,100%,51%) 0%, hsl(48,100%,70%) 50%, hsl(45,100%,51%) 100%);
-  background-size: 200% auto;
-  animation: shimmer 3s linear infinite;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.animate-fade-up {
+  animation: fadeUp 0.7s ease forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease forwards;
 }

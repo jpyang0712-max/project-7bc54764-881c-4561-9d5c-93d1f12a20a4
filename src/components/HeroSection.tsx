@@ -24,7 +24,7 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-[80vh] flex items-center justify-center overflow-hidden"
+      className="relative w-full h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Slideshow backgrounds */}
       {slides.map((slide, index) => (
